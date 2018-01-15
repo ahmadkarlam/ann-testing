@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing ANN</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <style>
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #eee;
+        }
+
+        .form-signin {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form class="form-signin" id="form">
+        <h2 class="form-signin-heading">Testing ANN</h2>
+        <label for="x1" class="sr-only">x1</label>
+        <input type="number" id="x1" class="form-control" placeholder="x1" required>
+        <label for="x2" class="sr-only">x2</label>
+        <input type="number" id="x2" class="form-control" placeholder="x2" required>
+        <label for="x3" class="sr-only">x3</label>
+        <input type="number" id="x3" class="form-control" placeholder="x3" required>
+        <label for="x4" class="sr-only">x4</label>
+        <input type="number" id="x4" class="form-control" placeholder="x4" required>
+        <label for="x5" class="sr-only">x5</label>
+        <input type="number" id="x5" class="form-control" placeholder="x5" required>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Test</button>
+    </form>
+
+</div> <!-- /container -->
+
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="/js/bootstrap.js"></script>
+<script>
+  var AUTH_TOKEN = 'Bearer UpCJZ07EwkARtIrFnAhm0/ji0a1iCs1PXJjxp2c8pHQM7SJllR9bjAGfZlWuFfChloBSZtKorgOftEaGlUZIKw==';
+  var URL = 'https://asiasoutheast.services.azureml.net/subscriptions/589c216362d34965abb94cf16540d630/services/89172cd039ca442a8ecb63b9e5978883/execute?api-version=2.0&format=swagger';
+  var data = {
+    "Inputs": {
+      "input1":
+          [
+            {
+              "Col1": "1",
+              "Col2": "1",
+              "Col3": "1",
+              "Col4": "1",
+              "Col5": "1"
+            }
+          ]
+    },
+    "GlobalParameters":  {
+    }
+  }
+
+  $.ajax({
+    url: URL,
+    type: 'post',
+    data: data,
+    dataType: 'json',
+    headers: {
+      authorization: AUTH_TOKEN,
+    },
+    success: function (res) {
+        console.log(res)
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+</script>
+</body>
+</html>
